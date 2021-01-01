@@ -4296,7 +4296,7 @@
                 "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupsName'))]"
             ],
             "properties": {
-                "description": "current schema has less columns than previous schema",
+                "description": "It is to notify that the current schema of the source has less column(s) than the schema of the same source previously detected",
                 "severity": 1,
                 "enabled": true,
                 "scopes": [
@@ -4367,7 +4367,7 @@
                 "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupsName'))]"
             ],
             "properties": {
-                "description": "Current schema has more columns than previous schema",
+                "description": "It is to notify that the current schema of the source has more column(s) than the schema of same source previously detected",
                 "severity": 0,
                 "enabled": true,
                 "scopes": [
@@ -4438,7 +4438,7 @@
                 "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupsName'))]"
             ],
             "properties": {
-                "description": "current and previous schema has same columns but different arrangement of columns",
+                "description": "It is to notify that the current schema of the source has same number of columns as the schema of the same source previously detected but either the arrangement of columns is different or one or more columns have different names",
                 "severity": 0,
                 "enabled": true,
                 "scopes": [
@@ -4510,7 +4510,7 @@
                 "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupsName'))]"
             ],
             "properties": {
-                "description": "The Data type of Column(s) is changed",
+                "description": "Change in data type of one or more column(s) has be detected",
                 "severity": 0,
                 "enabled": true,
                 "scopes": [
