@@ -4606,8 +4606,7 @@
                 "[concat(variables('factoryId'), '/datasets/rest_source_dataset')]",
                 "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
                 "[concat(variables('factoryId'), '/dataflows/Transformations_without_SQL_sink')]",
-                "[concat(variables('factoryId'), '/datasets/json_dataset')]",
-                "[resourceId('Microsoft.Logic/workflows', parameters('appLogicName'))]"
+                "[concat(variables('factoryId'), '/datasets/json_dataset')]"
             ]
         }
   ]
