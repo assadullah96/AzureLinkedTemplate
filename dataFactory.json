@@ -34,18 +34,19 @@
              "description": "The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens."
             }
         },
-        "appLogicName": {
-            "defaultValue": "asadAlerts",
-            "type": "String",
-            "metadata": {
-             "description": "The name can only contain letters, numbers, and '-', '(', ')', '_' or '.'"
-            }
-        },
+       
         "actionGroupsName": {
             "defaultValue": "Assad",
             "type": "String",
             "metadata": {
              "description": "The name can contain letters, numbers, and special characters, this can start or end with any number, letter or other special charactor"
+            }
+        },
+        "appLogicName": {
+            "defaultValue": "asadAlerts",
+            "type": "String",
+            "metadata": {
+             "description": "The name can only contain letters, numbers, and '-', '(', ')', '_' or '.'"
             }
         },
         "emailForAlerts": {
@@ -92,9 +93,7 @@
   "variables": {
         "factoryId": "[resourceId('Microsoft.DataFactory/factories/', parameters('factoryName'))]",
         "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-        "fullyQualifiedDomainName": ".database.windows.net",
-        "databaseCollation": "SQL_Latin1_General_CP1_CI_AS",
-        "actionRuleForSuppressResolvedNotification": "AssadSuppressResolvedNotificationRule"
+        "fullyQualifiedDomainName": ".database.windows.net"
     },
   "resources": [
       {
@@ -4587,9 +4586,46 @@
                     }
                 ]
             }
+        },
+         {
+            "type": "microsoft.insights/actionGroups",
+            "apiVersion": "2019-03-01",
+            "name": "[parameters('actionGroupsName')]",
+            "location": "Global",
+            "properties": {
+                "groupShortName": "asad",
+                "enabled": true,
+                "emailReceivers": [
+                    {
+                        "name": "AlertsOnEmail",
+                        "emailAddress": "[parameters('emailForAlerts')]",
+                        "useCommonAlertSchema": false
+                    }
+                ],
+                "smsReceivers": [],
+                "webhookReceivers": [
+                    {
+                        "name": "microsoftTeamsNotifications",
+                        "serviceUri":"[listCallbackURL(concat(resourceId('Microsoft.Logic/workflows', parameters('appLogicName')), '/triggers/manual'), '2016-10-01').value]",
+                        "useCommonAlertSchema": false
+                    }
+                ],
+                "itsmReceivers": [],
+                "azureAppPushReceivers": [],
+                "automationRunbookReceivers": [],
+                "voiceReceivers": [],
+                "logicAppReceivers": [],
+                "azureFunctionReceivers": []
+            },
+            "dependsOn": [
+                "[parameters('storageAccountName')]",
+                "[parameters('factoryName')]",
+                "[concat(variables('factoryId'), '/datasets/rest_source_dataset')]",
+                "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
+                "[concat(variables('factoryId'), '/dataflows/Transformations_without_SQL_sink')]",
+                "[concat(variables('factoryId'), '/datasets/json_dataset')]",
+                "[resourceId('Microsoft.Logic/workflows', parameters('appLogicName'))]"
+            ]
         }
-
-
-
   ]
 }
