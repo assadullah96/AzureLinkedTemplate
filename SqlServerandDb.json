@@ -10,6 +10,12 @@
                 "description": "Do you want to create sql database and server and write data to sqldb"
             }
         },
+       "location": {
+             "type": "string",
+             "defaultValue": "eastus",
+             "metadata": {
+             "description": "Location of your resources. Default location is eastUS"
+            }
     
         "databaseName": {
              "type": "string",
