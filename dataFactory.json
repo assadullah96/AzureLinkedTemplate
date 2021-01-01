@@ -185,7 +185,6 @@
                 "schema": []
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureBlobStorageLinkedService')]"
             ]
@@ -239,7 +238,6 @@
                 "schema": []
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureBlobStorageLinkedService')]"
             ]
@@ -289,7 +287,6 @@
                 "schema": {}
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureBlobStorageLinkedService')]"
             ]
@@ -378,7 +375,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseLinkedService')]"
             ]
@@ -422,7 +418,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseLinkedService')]"
             ]
@@ -465,7 +460,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseLinkedService')]"
             ]
@@ -499,7 +493,6 @@
                 "schema": []
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureBlobStorageLinkedService')]"
             ]
@@ -533,7 +526,6 @@
                 "schema": []
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureBlobStorageLinkedService')]"
             ]
@@ -576,7 +568,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseLinkedService')]"
             ]
@@ -669,7 +660,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
                 "[concat(variables('factoryId'), '/datasets/parquet_dataset')]",
@@ -774,7 +764,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
                 "[concat(variables('factoryId'), '/datasets/parquet_dataset')]",
@@ -2101,7 +2090,6 @@
                 "lastPublishTime": "2020-12-29T13:02:40Z"
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/datasets/rest_source_dataset')]",
                 "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
@@ -3782,7 +3770,6 @@
                 "lastPublishTime": "2020-12-29T14:05:29Z"
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/datasets/rest_source_dataset')]",
                 "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
@@ -3812,7 +3799,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]"
             ]
         },
@@ -3829,7 +3815,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]"
             ]
         },
@@ -3847,7 +3832,6 @@
                 }
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]"
             ]
         },
@@ -4618,7 +4602,6 @@
                 "azureFunctionReceivers": []
             },
             "dependsOn": [
-                "[parameters('storageAccountName')]",
                 "[parameters('factoryName')]",
                 "[concat(variables('factoryId'), '/datasets/rest_source_dataset')]",
                 "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
