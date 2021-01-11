@@ -2,13 +2,6 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-        "SinkDataToSql": {
-            "allowedValues": [ "Yes", "No" ],
-            "type": "string",
-            "metadata": {
-                "description": "Do you want to create sql database and server and write data to sqldb"
-            }
-        },
        "location": {
              "type": "string",
              "metadata": {
@@ -49,7 +42,6 @@
     },
   "resources": [
   {
-            "condition": "[equals(parameters('SinkDataToSql'),'Yes')]",
             "type": "Microsoft.Sql/servers",
             "apiVersion": "2020-02-02-preview",
             "name": "[parameters('sqlServerName')]",
@@ -61,7 +53,6 @@
             },
             "resources": [
                 {
-                "condition": "[equals(parameters('SinkDataToSql'),'Yes')]",
                 "type": "databases",
                 "apiVersion": "2020-08-01-preview",
                 "name": "[parameters('databaseName')]",
@@ -79,7 +70,6 @@
                 ]
                 },
                 {
-                    "condition": "[equals(parameters('SinkDataToSql'),'Yes')]",
                     "name": "AllowAllMicrosoftAzureIps",
                     "type": "firewallrules",
                     "apiVersion": "2020-02-02-preview",
