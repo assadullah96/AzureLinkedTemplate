@@ -2247,39 +2247,50 @@
                 "[concat(variables('factoryId'), '/pipelines/SqlDataLoader')]"
             ]
         },
-		{
-			"type": "microsoft.insights/actionGroups",
-			"apiVersion": "2019-03-01",
-			"name": "[parameters('actionGroupsName')]",
-			"location": "Global",
-			"properties": {
-				"groupShortName": "asad",
-				"enabled": true,
-				"emailReceivers": [{
-					"name": "AlertsOnEmail",
-					"emailAddress": "[parameters('emailForAlerts')]",
-					"useCommonAlertSchema": false
-				}],
-				"smsReceivers": [],
-				"webhookReceivers": [{
-					"name": "microsoftTeamsNotifications",
-					"serviceUri": "[listCallbackURL(concat(resourceId('Microsoft.Logic/workflows', parameters('appLogicName')), '/triggers/manual'), '2016-10-01').value]",
-					"useCommonAlertSchema": false
-				}],
-				"itsmReceivers": [],
-				"azureAppPushReceivers": [],
-				"automationRunbookReceivers": [],
-				"voiceReceivers": [],
-				"logicAppReceivers": [],
-				"azureFunctionReceivers": []
-			},
-			"dependsOn": [
-				"[parameters('factoryName')]",
-				"[concat(variables('factoryId'), '/datasets/rest_source_dataset')]",
-				"[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
-				"[concat(variables('factoryId'), '/dataflows/Transformations_without_SQL_sink')]",
-				"[concat(variables('factoryId'), '/datasets/json_dataset')]"
-			]
-	}
+	{
+            "type": "microsoft.insights/actionGroups",
+            "apiVersion": "2019-03-01",
+            "name": "[parameters('actionGroupsName')]",
+            "location": "Global",
+            "properties": {
+                "groupShortName": "Notification",
+                "enabled": true,
+                "emailReceivers": [
+                    {
+                        "name": "AlertsOnEmail_-EmailAction-",
+                        "emailAddress": "assadullah@emumba.com",
+                        "useCommonAlertSchema": false
+                    }
+                ],
+                "smsReceivers": [],
+                "webhookReceivers": [
+                    {
+                        "name": "microsoftTeamsNotifications",
+                        "serviceUri": "[listCallbackURL(concat(resourceId('Microsoft.Logic/workflows', parameters('appLogicName')), '/triggers/manual'), '2016-10-01').value]",
+                        "useCommonAlertSchema": false
+                    }
+                ],
+                "itsmReceivers": [],
+                "azureAppPushReceivers": [],
+                "automationRunbookReceivers": [],
+                "voiceReceivers": [],
+                "logicAppReceivers": [],
+                "azureFunctionReceivers": []
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/datasets/PublicBlobDataset')]",
+                "[concat(variables('factoryId'), '/datasets/CustomerBlobDataset')]",
+                "[concat(variables('factoryId'), '/dataflows/covid_tracking_transformation_stagging')]",
+                "[concat(variables('factoryId'), '/datasets/AzureSqlOperationsTable')]",
+                "[concat(variables('factoryId'), '/dataflows/covid_tracking_transformation_operations')]",
+                "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
+                "[concat(variables('factoryId'), '/datasets/previous_data')]",
+                "[concat(variables('factoryId'), '/datasets/get_previous_data_copy')]",
+                "[concat(variables('factoryId'), '/datasets/AzureSqlStagging')]",
+                "[concat(variables('factoryId'), '/datasets/prev_stagging_table')]",
+                "[concat(variables('factoryId'), '/datasets/get_prev_stagging_table_copy')]",
+                "[concat(variables('factoryId'), '/datasets/save_store_proc_stagging_result')]"
+            ]
+        }	      
   ]
 }
