@@ -1533,35 +1533,7 @@
 				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabaseLinkedService')]"
 			]
 		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DailyTrigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "This is the daily trigger for pipeline execution",
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [{
-					"pipelineReference": {
-						"referenceName": "SqlDataLoader",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				}],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Hour",
-						"interval": 24,
-						"startTime": "[parameters('currentTime')]",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/SqlDataLoader')]"
-			]
-		},
+		
 		{
 			"type": "Microsoft.Insights/metricalerts",
 			"apiVersion": "2018-03-01",
