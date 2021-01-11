@@ -45,13 +45,6 @@
 		"emailForAlerts": {
 			"type": "String"
 		},
-		"SinkDataToSql": {
-			"allowedValues": ["Yes", "No"],
-			"type": "string",
-			"metadata": {
-				"description": "Do you want to create sql database and server and write data to sqldb?"
-			}
-		},
 
 		"databaseName": {
 			"type": "string",
