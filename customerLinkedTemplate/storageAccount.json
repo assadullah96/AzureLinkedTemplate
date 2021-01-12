@@ -5,7 +5,7 @@
      "storageAccountName": {
              "type": "string",
              "metadata": {
-             "description": "The storage account name can contain only lowercase letters and numbers. Name must be between 1 and 11 characters"
+             "description": "The storage account name can contain only lowercase letters and numbers. Name must be between 1 and 11 characters."
              }
         },
     "location": {
