@@ -183,7 +183,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "covid_tracking_transformation_stagging",
+								"referenceName": "LoadIntoStaggingTable_SQL",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -276,7 +276,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "covid_tracking_transformation_operations",
+								"referenceName": "LoadIntoOperationalTable_SQL",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -898,6 +898,9 @@
 						}
 					}
 				],
+                "folder": {
+                    "name": "CovidDefinitiveHC"
+                },
 				"annotations": [],
 				"lastPublishTime": "2021-01-08T12:53:54Z"
 			},
@@ -905,9 +908,9 @@
 				"[parameters('factoryName')]",
 				"[concat(variables('factoryId'), '/datasets/PublicBlobDataset')]",
 				"[concat(variables('factoryId'), '/datasets/CustomerBlobDataset')]",
-				"[concat(variables('factoryId'), '/dataflows/covid_tracking_transformation_stagging')]",
+				"[concat(variables('factoryId'), '/dataflows/LoadIntoStaggingTable_SQL')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlOperationsTable')]",
-				"[concat(variables('factoryId'), '/dataflows/covid_tracking_transformation_operations')]",
+				"[concat(variables('factoryId'), '/dataflows/LoadIntoOperationalTable_SQL')]",
 				"[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
 				"[concat(variables('factoryId'), '/datasets/previous_data')]",
 				"[concat(variables('factoryId'), '/datasets/get_previous_data_copy')]",
@@ -978,6 +981,9 @@
 						"defaultValue": "public"
 					}
 				},
+                "folder": {
+                    "name": "Sources"
+                },
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -1115,6 +1121,9 @@
 						"defaultValue": "customer"
 					}
 				},
+                "folder": {
+                    "name": "Sources"
+                },
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -1139,12 +1148,12 @@
 		},
 
 		{
-			"name": "[concat(parameters('factoryName'), '/covid_tracking_transformation_stagging')]",
+			"name": "[concat(parameters('factoryName'), '/LoadIntoStaggingTable_SQL')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"folder": {
-					"name": "transformations"
+					"name": "CovidDefinitiveHC"
 				},
 				"type": "MappingDataFlow",
 				"typeProperties": {
@@ -1173,12 +1182,12 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/covid_tracking_transformation_operations')]",
+			"name": "[concat(parameters('factoryName'), '/LoadIntoOperationalTable_SQL')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"folder": {
-					"name": "transformations"
+					"name": "CovidDefinitiveHC"
 				},
 				"type": "MappingDataFlow",
 				"typeProperties": {
@@ -1229,6 +1238,9 @@
 						"defaultValue": "covid_tracking.csv"
 					}
 				},
+                "folder": {
+                    "name": "Sources"
+                },
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -1280,6 +1292,9 @@
 						"defaultValue": "asad"
 					}
 				},
+                "folder": {
+                    "name": "Sinks"
+                },
 				"annotations": [],
 				"type": "AzureSqlTable",
 				"schema": [],
@@ -1318,6 +1333,9 @@
 						"defaultValue": "asad"
 					}
 				},
+                "folder": {
+                    "name": "Sinks"
+                },
 				"annotations": [],
 				"type": "AzureSqlTable",
 				"schema": [],
@@ -1347,7 +1365,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "schema"
+					"name": "Schema"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1380,7 +1398,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "schema"
+					"name": "Schema"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1423,7 +1441,7 @@
 					}
 				},
 				"folder": {
-					"name": "schema"
+					"name": "Schema"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -1464,7 +1482,7 @@
 					}
 				},
 				"folder": {
-					"name": "schema"
+					"name": "Schema"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -1505,7 +1523,7 @@
 					}
 				},
 				"folder": {
-					"name": "schema"
+					"name": "Schema"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -2280,9 +2298,9 @@
             "dependsOn": [
                 "[concat(variables('factoryId'), '/datasets/PublicBlobDataset')]",
                 "[concat(variables('factoryId'), '/datasets/CustomerBlobDataset')]",
-                "[concat(variables('factoryId'), '/dataflows/covid_tracking_transformation_stagging')]",
+                "[concat(variables('factoryId'), '/dataflows/LoadIntoStaggingTable_SQL')]",
                 "[concat(variables('factoryId'), '/datasets/AzureSqlOperationsTable')]",
-                "[concat(variables('factoryId'), '/dataflows/covid_tracking_transformation_operations')]",
+                "[concat(variables('factoryId'), '/dataflows/LoadIntoOperationalTable_SQL')]",
                 "[concat(variables('factoryId'), '/datasets/source_csv_dataset')]",
                 "[concat(variables('factoryId'), '/datasets/previous_data')]",
                 "[concat(variables('factoryId'), '/datasets/get_previous_data_copy')]",
