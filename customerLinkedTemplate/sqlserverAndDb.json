@@ -8,7 +8,6 @@
              "description": "Location of your resources. Default location is eastUS"
             }
        },
-    
         "databaseName": {
              "type": "string",
              "metadata": {
